@@ -1,16 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+import Counter from "./components/Counter"; // Importing the Counter component
 
 describe("Counter Component", () => {
   test("initial count is 0", () => {
-    render(<App />);
-    // console.log("screensdf",screen)
+    render(<Counter />);
     const countElement = screen.getByText("0");
     expect(countElement).toBeInTheDocument();
   });
 
   test("increments count when + button is clicked", () => {
-    render(<App />);
+    render(<Counter />);
     const incrementButton = screen.getByText("+");
     const countElement = screen.getByText("0");
 
@@ -22,7 +21,7 @@ describe("Counter Component", () => {
   });
 
   test("decrements count when - button is clicked", () => {
-    render(<App />);
+    render(<Counter />);
     const decrementButton = screen.getByText("-");
     const countElement = screen.getByText("0");
 
