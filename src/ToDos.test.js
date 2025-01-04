@@ -9,7 +9,32 @@ test('renders a list of todos after successful fetch', async () => {
   });
   global.fetch = mockFetch;
 
+
+
+  const logSpy = jest.spyOn(console, 'log');
+// console.log('Hello World');
+
+ 
   render(<ToDos />);
+  // expect(logSpy).toHaveBeenCalledWith('Hello World1!');
+
+  // expect(logSpy).toHaveBeenCalledWith('Hello World!');
+
+
+  // await waitFor(() => expect(logSpy).toHaveBeenCalledWith('Hello World!')); // First log
+  // await waitFor(() => expect(logSpy).toHaveBeenCalledWith('Hello World1!')); // Second log
+
+
+  expect(logSpy).toHaveBeenCalledWith('Hello World!')
+  expect(logSpy).toHaveBeenCalledWith('Hello World1!')
+
+  console.log("SDFSDFSDFSDF",logSpy.mock.calls)
+
+  // Check the order of the console logs
+  expect(logSpy.mock.calls[0][0]).toBe('Hello World!');
+  expect(logSpy.mock.calls[1][0]).toBe('Hello World1!');
+
+
 
   // Check if the loading message is shown first
   expect(screen.getByText(/Loading todos.../)).toBeInTheDocument();

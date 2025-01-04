@@ -6,6 +6,8 @@ const ToDos = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log("Hello World!")
+    console.log("Hello World1!")
     // Fetch todos from the API
     const fetchTodos = async () => {
       try {
